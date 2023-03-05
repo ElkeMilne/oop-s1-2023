@@ -13,10 +13,3 @@ int array_sum(int arr[], int n) {
 
     return total;
 }
-
-int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int result = array_sum(arr, n);
-    std::cout << "The sum of the array is: " << result << std::endl;
-}
