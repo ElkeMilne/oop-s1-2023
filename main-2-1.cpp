@@ -3,7 +3,7 @@
 
 extern int min_element(int[], int);
 
-main(){
+run(){
     int arr1[] = {1, 2, 1, 2, 1};
     int n = sizeof(arr1);
 
