@@ -14,10 +14,3 @@ double average(int arr[], int n) {
     return avg;
 }
 
-int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    double result = average(arr, n);
-    std::cout << "The average of the array is: " << result << std::endl;
-    return 0;
-}
