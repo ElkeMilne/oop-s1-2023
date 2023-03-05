@@ -14,9 +14,9 @@ int main() {
     int n4 = 4;
     int n5 = 1;
     //test cases
-    std::cout << isFanArray(arr1, n1) << std::endl;  // 0
-    std::cout << isFanArray(arr2, n2) << std::endl;  // 0
-    std::cout << isFanArray(arr3, n3) << std::endl;  // 1
-    std::cout << isFanArray(arr4, n4) << std::endl;  // 1
-    std::cout << isFanArray(arr5, n5) << std::endl;  //0
+    std::cout << is_fanarray(arr1, n1) << std::endl;  // 0
+    std::cout << is_fanarray(arr2, n2) << std::endl;  // 0
+    std::cout << is_fanarray(arr3, n3) << std::endl;  // 1
+    std::cout << is_fanarray(arr4, n4) << std::endl;  // 1
+    std::cout << is_fanarray(arr5, n5) << std::endl;  //0
 }

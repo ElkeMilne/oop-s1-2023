@@ -1,7 +1,7 @@
 //Checks if array is a fan array/palindrome
 #include <iostream>
 
-bool isFanArray(int arr[], int n) {   //array, size of array
+bool is_fanarray(int arr[], int n) {   //array, size of array
     if (n <= 1) {  // if size parameter is less than OR equal to 1, return false
         return false;
     }
