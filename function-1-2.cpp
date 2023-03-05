@@ -1,6 +1,6 @@
 #include <iostream>
 
-double average(int arr[], int n) {
+double array_mean(int arr[], int n) {
     if (n < 1) {
         return 0.0;
     }

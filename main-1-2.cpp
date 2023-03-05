@@ -5,7 +5,7 @@
 int main() {
     int arr[] = {1, 2, 3, 4, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
-    double result = average(arr, n);
+    double result = array_mean(arr, n);
     std::cout << "The average of the array is: " << result << std::endl;
     return 0;
 
@@ -20,9 +20,9 @@ int main() {
     int n4 = 4;
     int n5 = 1;
 
-    std::cout << "Average: " << average(arr1, n1) << std::endl;
-    std::cout << "Average: " << average(arr2, n2) << std::endl;
-    std::cout << "Average: " << average(arr3, n3) << std::endl;
-    std::cout << "Average: " << average(arr4, n4) << std::endl;
-    std::cout << "Average: " << average(arr5, n5) << std::endl;
+    std::cout << "Average: " << array_mean(arr1, n1) << std::endl;
+    std::cout << "Average: " << array_mean(arr2, n2) << std::endl;
+    std::cout << "Average: " << array_mean(arr3, n3) << std::endl;
+    std::cout << "Average: " << array_mean(arr4, n4) << std::endl;
+    std::cout << "Average: " << array_mean(arr5, n5) << std::endl;
 }
