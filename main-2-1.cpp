@@ -1,6 +1,4 @@
 #include <iostream>
-#include "function-2-1.cpp"
-
 extern int min_element(int[], int);
 
 int main(){

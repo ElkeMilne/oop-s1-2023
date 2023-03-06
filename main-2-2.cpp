@@ -1,5 +1,4 @@
 #include <iostream>
-
 extern int max_element(int[], int);
 
 int main(){
