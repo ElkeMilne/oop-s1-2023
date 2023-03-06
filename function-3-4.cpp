@@ -1,7 +1,5 @@
 #include <iostream>
 
-#include <iostream>
-
 void print_pass_fail(char grade) {
     switch (grade) {
         case 'A':
