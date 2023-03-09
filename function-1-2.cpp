@@ -1,16 +1,12 @@
 #include <iostream>
 
-double array_mean(int arr[], int n) {
-    if (n < 1) {
-        return 0.0;
+int is_identity(int array[10][10]) {
+  for (int i = 0; i < 10; i++) {
+    if (array[i][i] != 1) {
+      return false;
+    } else if (array[i][i] != 0) {
+      return false;
     }
-
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += arr[i];
-    }
-
-    double avg = sum / n;
-    return avg;
+  }
+  return true;
 }
-
