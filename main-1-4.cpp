@@ -1,5 +1,5 @@
 #include <iostream> 
-#include "function-1-4.cpp"
+extern int print_scaled(int array[3][3],int scale);
 
 int main(){
 int scale = 3;

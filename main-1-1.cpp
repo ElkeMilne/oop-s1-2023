@@ -1,5 +1,5 @@
 #include <iostream>
-#include "function-1-1.cpp"
+extern int sum_diagonal(int array[4][4]);
 
 int main() {
   int array[4][4] = {{2, 4, 4, 4}, {10, 2, 16, 18}, {20, 22, 2, 24}, {26, 28, 30, 2}};
