@@ -10,9 +10,6 @@ void decimalToBinary(std::string& decimal) {
         std::cout << "0\n";
         return;
     }
-    if (n >= 9){
-        std::cout << "0\n";
-    }
 
     // Compute the binary digits
     int binary[32]; // array that stores binary digits
