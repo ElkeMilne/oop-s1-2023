@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-void decimalToBinary(std::string& decimal) {
+void print_binary_str(std::string& decimal) {
     // Convert the decimal string to an integer
     int n = std::stoi(decimal);
 

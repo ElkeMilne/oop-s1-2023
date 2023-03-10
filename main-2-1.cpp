@@ -1,8 +1,8 @@
 #include <iostream>
-extern int decimalToBinary(std::string decimal);
+extern int print_binary_str(std::string decimal);
 
 int main() {
     std::string decimal = "789";
-    decimalToBinary(decimal);
+    print_binary_str(decimal);
     return 0;
 }
