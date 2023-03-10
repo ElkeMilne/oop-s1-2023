@@ -16,7 +16,3 @@ for (int i = 0; i < 2; i++) {
   return true;
 }
 
-int main() {
-  int array[2][2] = {{1, 0}, {0, 1}};
-  std::cout << is_identity;
-}
