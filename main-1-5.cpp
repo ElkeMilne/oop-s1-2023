@@ -1,9 +1,11 @@
-#include <iostream>
+#include <iostream> 
 #include "function-1-5.cpp"
 
-main(){
-    int n1 = 5;
-
-    std::cout << count_evens(n1) << std::endl;
+int main(){
+int scale = 3;
+int array1[3][3] = {{1, 0, 1}, {1, 0, 1}, {1, 0, 1}};
+int array2[3][3] = {{1, 0, 1}, {1, 0, 1}, {1, 0, 1}};
+   
+    print_summed(array1, array2);
 
 }

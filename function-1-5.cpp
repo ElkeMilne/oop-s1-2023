@@ -1,16 +1,16 @@
-#include <iostream>
+#include <iostream> 
 
-int count_evens(int n) {
-    if (n < 1) {
-        return 0;
-    }
-
-    int count = 0;
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) {
-            count++;
+void print_summed(int array1[3][3],int array2[3][3]){
+    int sum[3][3];
+    for (int i = 0; i < 3 ; i++) {
+        for (int j = 0; j < 3 ; j++){
+            sum[i][j] = array1[i][j] + array2[i][j];
         }
     }
-
-    return count;
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            std::cout << sum[i][j] << " ";
+        }
+        std::cout << std::endl;
+}
 }

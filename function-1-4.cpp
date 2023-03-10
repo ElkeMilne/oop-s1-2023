@@ -1,14 +1,21 @@
 #include <iostream>
+int scale = 0;
 
-int sum_two_arrays(int arr1[], int arr2[], int n) {
-    if (n < 1) {
-        return 0;
-    }
-
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += arr1[i] + arr2[i];
-    }
-
-    return sum;
+void print_scaled(int array[3][3],int scale){
+    for (int i = 0; i < 3 ; i++) {
+        for (int j = 0; j < 3; j++){
+            array[i][j] = array[i][j]*scale;
+            }
+        }
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            std::cout << array[i][j] << " ";
+            }
+            std::cout<<std::endl;
+        }
+    
 }
+
+//{3, 5, 7}
+//{3, 5, 7}
+//{3, 5, 7}
