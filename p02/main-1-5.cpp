@@ -1,5 +1,5 @@
 #include <iostream> 
-#include "function-1-5.cpp"
+extern int print_summed(int array1[3][3],int array2[3][3]);
 
 int main(){
 int scale = 3;

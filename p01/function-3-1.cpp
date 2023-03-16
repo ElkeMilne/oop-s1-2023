@@ -6,7 +6,7 @@ bool is_fanarray(int arr[], int n) {   //array, size of array
         return false;
     }
     for (int i = 0; i <= n/2; i++) {    //Checks if array is not in ascending order
-        if (i > 0 && arr[i] < arr[i-1]) {
+        if (i > 0 && arr[i] < arr[i-1]) {   //element is greater than 0 and element2 less than element1
             return false;  
         }
         if (arr[i] != arr[n-i-1]) {
