@@ -31,3 +31,7 @@ int palindrome_sum(int integers[], int length) {
     return -2;
 }
 
+int sum_integers(int integers[], int length){
+    
+}
+
