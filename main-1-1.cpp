@@ -1,6 +1,8 @@
 #include <iostream>
-extern void print_matrix(int array[10][10]);
 
-int main(){
-    print_matrix;
+extern int* readNumbers();
+extern void printNumbers(int* numbers, int length);
+
+int main() {
+    
 }
