@@ -1,18 +1,12 @@
+#include "Person.h"
 #include <iostream>
 
-int* readNumbers() {
-    int* numbers = new int[10];
-
-    for (int i = 0; i < 10; i++) {
-        std::cin >> numbers[i];
+Person* createPersonArray(int n) {
+    Person* people;
+    people = new Person[n];
+    for (int i = 0; i < n; i++) {
+        people[i].name = "John Doe";
+        people[i].age = 0;
     }
-    
-    return numbers;
-}
-
-void printNumbers(int* numbers, int length) {
-    for (int i = 0; i < length; i++) {
-        std::cout << numbers[i] << "\n";
-    }
-    std::cout << std::endl;
+    return people;
 }
