@@ -14,5 +14,6 @@ struct PersonList {
 };
 
 PersonList createPersonList(int n);
+PersonList deepCopyPersonList(PersonList pl);
 
 #endif
