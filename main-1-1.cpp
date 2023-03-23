@@ -1,6 +1,6 @@
 #include "Person.h"
 #include <iostream>
-#include "function-1-1.cpp"
+extern Person* createPersonArray(int n);
 
 int main() {
     int n = 3;
