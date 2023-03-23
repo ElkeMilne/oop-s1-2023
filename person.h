@@ -9,4 +9,3 @@ struct Person {
 };
 
 #endif
-//
