@@ -7,10 +7,12 @@ struct Person {
     std::string name;
     int age;
 };
+
 struct PersonList {
     Person* people;
     int numPeople;
 };
 
+PersonList createPersonList(int n);
+
 #endif
-//
