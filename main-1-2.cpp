@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "Vehicle.h" 
 
@@ -11,13 +12,10 @@ public:
     ParkingLot(int maxCapacity) : maxCapacity(maxCapacity), count(0) {
         vehicles = new Vehicle*[maxCapacity]; 
     }
-    
-    ParkingLot::~ParkingLot() {
-    for (int i = 0; i < count; i++) {
-        delete vehicles[i];
+
+    ~ParkingLot() {
+        delete[] vehicles; 
     }
-    delete[] vehicles;
-}
 
     int getCount() const {
         return count;
