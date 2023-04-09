@@ -30,5 +30,15 @@ int main() {
         vehicles[i] = new Motorbike(currentID++);
     }
 
-    std::cout << "
+    std::cout << "Parking durations:\n";
+
+    for (int i = 0; i < numVehicles; i++) {
+        std::cout << "Vehicle " << vehicles[i]->getID() << ": " << vehicles[i]->getParkingDuration() << " seconds\n";
+    }
+
+    for (int i = 0; i < numVehicles; i++) {
+        delete vehicles[i];
+    }
+
+    return 0;
 }
