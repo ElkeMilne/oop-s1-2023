@@ -1,28 +1,55 @@
 #include <iostream>
-#include "ParkingLot.h"
+#include "Vehicle.h" 
 
-int main() {
-    ParkingLot lot(10);
-    int id;
-    std::string type;
-    while (lot.getCount() < 10) {
-        std::cout << "Enter vehicle type (car, truck, motorcycle): ";
-        std::cin >> type;
-        if (type == "car") {
-            Car* car = new Car();
-            lot.parkVehicle(car);
-        } else if (type == "truck") {
-            Truck* truck = new Truck();
-            lot.parkVehicle(truck);
-        } else if (type == "motorcycle") {
-            Motorcycle* motorcycle = new Motorcycle();
-            lot.parkVehicle(motorcycle);
+class ParkingLot {
+private:
+    int maxCapacity;
+    int count;
+    Vehicle** vehicles; 
+
+public:
+    ParkingLot(int maxCapacity) : maxCapacity(maxCapacity), count(0) {
+        vehicles = new Vehicle*[maxCapacity]; 
+    }
+
+    ~ParkingLot() {
+        for (int i = 0; i < count; i++) {
+            delete vehicles[i];
+        }
+        delete[] vehicles; 
+    }
+
+    int getCount() const {
+        return count;
+    }
+
+    void parkVehicle(Vehicle* vehicle) {
+        if (count < maxCapacity) {
+            vehicles[count] = vehicle;
+            count++;
+            std::cout << "Vehicle parked successfully\n";
         } else {
-            std::cout << "Invalid vehicle type" << std::endl;
+            std::cout << "The lot is full\n";
         }
     }
-    std::cout << "Enter ID of vehicle to unpark: ";
-    std::cin >> id;
-    lot.unparkVehicle(id);
-    return 0;
-}
+
+    void unparkVehicle(int id) {
+        int index = -1;
+        for (int i = 0; i < count; i++) {
+            if (vehicles[i]->getId() == id) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1) {
+            std::cout << "Vehicle not in the lot\n";
+        } else {
+            delete vehicles[index]; 
+            count--;
+            for (int i = index; i < count; i++) {
+                vehicles[i] = vehicles[i+1]; 
+            }
+            std::cout << "Vehicle unparked successfully\n";
+        }
+    }
+};
