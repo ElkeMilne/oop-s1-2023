@@ -36,7 +36,7 @@ public:
     void unparkVehicle(int id) {
         int index = -1;
         for (int i = 0; i < count; i++) {
-            if (vehicles[i]->getId() == id) {
+            if (vehicles[i]->getID() == id) {
                 index = i;
                 break;
             }
