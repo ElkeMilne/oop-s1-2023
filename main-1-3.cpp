@@ -1,57 +1,43 @@
 #include <iostream>
-#include "ParkingLot.h"
-#include "Car.h"
-#include "Bus.h"
-#include "Motorbike.h"
+#include "parkinglot.h"
+
+using namespace std;
 
 int main() {
-    // Create a parking lot with a capacity of 10 vehicles
     ParkingLot parkingLot(10);
-    
-    // Park 5 Car objects, 3 Bus objects, and 2 Motorbike objects in the parking lot
-    int numCars = 5;
-    int numBuses = 3;
-    int numMotorbikes = 2;
-    
-    // Prompt the user to park each type of vehicle until the parking lot is full
-    while (numCars > 0 || numBuses > 0 || numMotorbikes > 0) {
-        std::string vehicleType;
-        if (numCars > 0) {
-            std::cout << "Enter type of vehicle to park (Car, Bus, or Motorbike): ";
-            std::cin >> vehicleType;
-            if (vehicleType == "Car") {
-                Car* car = new Car(numCars);
-                parkingLot.parkVehicle(car);
-                numCars--;
-            }
+    string vehicleType;
+    int numParked = 0;
+
+    while (numParked < parkingLot.capacity) {
+        cout << "Enter vehicle type (car/bus/motorbike): ";
+        cin >> vehicleType;
+
+        Vehicle* vehicle;
+        if (vehicleType == "car") {
+            vehicle = new Car();
         }
-        if (numBuses > 0 && vehicleType != "Bus") {
-            std::cout << "Enter type of vehicle to park (Car, Bus, or Motorbike): ";
-            std::cin >> vehicleType;
-            if (vehicleType == "Bus") {
-                Bus* bus = new Bus(numBuses);
-                parkingLot.parkVehicle(bus);
-                numBuses--;
-            }
+        else if (vehicleType == "bus") {
+            vehicle = new Bus();
         }
-        if (numMotorbikes > 0 && vehicleType != "Motorbike") {
-            std::cout << "Enter type of vehicle to park (Car, Bus, or Motorbike): ";
-            std::cin >> vehicleType;
-            if (vehicleType == "Motorbike") {
-                Motorbike* motorbike = new Motorbike(numMotorbikes);
-                parkingLot.parkVehicle(motorbike);
-                numMotorbikes--;
-            }
+        else if (vehicleType == "motorbike") {
+            vehicle = new Motorbike();
         }
-        if (parkingLot.getCount() == parkingLot.getMaxCapacity()) {
-            std::cout << "The parking lot is full." << std::endl;
-            break;
+        else {
+            cout << "Invalid vehicle type. Try again." << endl;
+            continue;
+        }
+
+        if (parkingLot.parkVehicle(vehicle)) {
+            numParked++;
+            cout << "Vehicle parked." << endl;
+        }
+        else {
+            cout << "Parking lot full. Cannot park vehicle." << endl;
         }
     }
-    
-    // Count the number of vehicles that have overstayed in the parking lot for more than 15 seconds
-    int numOverstayingVehicles = parkingLot.countOverstayingVehicles(15);
-    std::cout << "Number of overstaying vehicles: " << numOverstayingVehicles << std::endl;
-    
+
+    int overstayingCount = parkingLot.countOverstayingVehicles(15);
+    cout << "Number of overstaying vehicles: " << overstayingCount << endl;
+
     return 0;
 }
