@@ -1,30 +1,45 @@
 #include <iostream>
-#include "Bike_yard.h"
+#include "ParkingLot.h"
+#include "Vehicle.h"
+
+using namespace std;
 
 int main() {
-    Bike_yard bike_yard(2);
+    ParkingLot lot(10);
 
-    Bike bike1("test", 111);
-    bool added1 = bike_yard.add_stock(bike1);
-    std::cout << "Bike 1 added: " << added1 << std::endl;
+    // prompt user for vehicle type and park until lot is full
+    while (lot.getCount() < lot.getCapacity()) {
+        char type;
+        cout << "Enter vehicle type (c for car, b for bus, t for truck): ";
+        cin >> type;
 
-    Bike bike2("test2", 222);
-    bool added2 = bike_yard.add_stock(bike2);
-    std::cout << "Bike 2 added: " << added2 << std::endl;
+        Vehicle* vehicle;
+        switch (type) {
+            case 'c':
+                vehicle = new Car();
+                break;
+            case 'b':
+                vehicle = new Bus();
+                break;
+            case 't':
+                vehicle = new Truck();
+                break;
+            default:
+                cout << "Invalid vehicle type" << endl;
+                continue;
+        }
 
-    Bike bike3("test3", 333);
-    bool added3 = bike_yard.add_stock(bike3);
-    std::cout << "Bike 3 added: " << added3 << std::endl;
-
-    std::cout << "Total stock count: " << bike_yard.get_total_stock_count() << std::endl;
-    std::cout << "test 1 bike count: " << bike_yard.get_stock_quantity(123) << std::endl;
-
-    Bike *current_stock_list = bike_yard.get_current_stock_list();
-    std::cout << "Current stock list: ";
-    for (int i = 0; i < bike_yard.get_total_stock_count(); i++) {
-        std::cout << current_stock_list[i].get_brand() << " ";
+        lot.parkVehicle(vehicle);
+        cout << "Vehicle parked. Current count: " << lot.getCount() << endl;
     }
-    std::cout << std::endl;
+
+    // prompt user for vehicle ID to unpark
+    int vehicle_id;
+    cout << "Enter vehicle ID to unpark: ";
+    cin >> vehicle_id;
+
+    lot.unparkVehicle(vehicle_id);
+    cout << "Vehicle unparked. Current count: " << lot.getCount() << endl;
 
     return 0;
 }
