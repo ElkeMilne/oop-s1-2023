@@ -11,7 +11,6 @@ ParkingLot::~ParkingLot() {
     for (int i = 0; i < count; i++) {
         delete vehicles[i];
     }
-    delete[] vehicles;
 }
 
 int ParkingLot::getCapacity() const {
