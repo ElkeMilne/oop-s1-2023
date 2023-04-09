@@ -8,9 +8,6 @@ ParkingLot::ParkingLot(int max_capacity) : capacity(max_capacity), count(0) {
 }
 
 ParkingLot::~ParkingLot() {
-    for (int i = 0; i < count; i++) {
-        delete vehicles[i];
-    }
 }
 
 int ParkingLot::getCapacity() const {
