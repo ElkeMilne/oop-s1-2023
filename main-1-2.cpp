@@ -13,9 +13,6 @@ public:
     }
 
     ~ParkingLot() {
-        for (int i = 0; i < count; i++) {
-            delete vehicles[i];
-        }
         delete[] vehicles; 
     }
 
@@ -44,7 +41,6 @@ public:
         if (index == -1) {
             std::cout << "Vehicle not in the lot\n";
         } else {
-            delete vehicles[index]; 
             count--;
             for (int i = index; i < count; i++) {
                 vehicles[i] = vehicles[i+1]; 
