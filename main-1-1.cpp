@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include "Car.h"
-#include "Bus.h"
-#include "Motorbike.h"
+#include "Car.hpp"
+#include "Bus.hpp"
+#include "Motorbike.hpp"
 
 int main() {
     std::vector<Vehicle*> vehicles;
