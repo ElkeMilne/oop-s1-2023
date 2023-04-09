@@ -1,20 +1,22 @@
 #include <iostream>
-#include <vector>
-#include "Vehicle.h"
+#include "Vehicle.h" 
 
 class ParkingLot {
 private:
     int maxCapacity;
     int count;
-    std::vector<Vehicle*> vehicles;
+    Vehicle** vehicles; 
 
 public:
-    ParkingLot(int maxCapacity) : maxCapacity(maxCapacity), count(0), vehicles(maxCapacity) {}
+    ParkingLot(int maxCapacity) : maxCapacity(maxCapacity), count(0) {
+        vehicles = new Vehicle*[maxCapacity]; 
+    }
 
     ~ParkingLot() {
-        for (auto vehicle : vehicles) {
-            delete vehicle;
+        for (int i = 0; i < count; i++) {
+            delete vehicles[i];
         }
+        delete[] vehicles; 
     }
 
     int getCount() const {
@@ -32,15 +34,21 @@ public:
     }
 
     void unparkVehicle(int id) {
-        auto it = std::find_if(vehicles.begin(), vehicles.end(),
-            [id](Vehicle* vehicle) { return vehicle->getId() == id; });
-
-        if (it == vehicles.end()) {
+        int index = -1;
+        for (int i = 0; i < count; i++) {
+            if (vehicles[i]->getId() == id) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1) {
             std::cout << "Vehicle not in the lot\n";
         } else {
-            delete *it;
-            vehicles.erase(it);
+            delete vehicles[index]; 
             count--;
+            for (int i = index; i < count; i++) {
+                vehicles[i] = vehicles[i+1]; 
+            }
             std::cout << "Vehicle unparked successfully\n";
         }
     }
