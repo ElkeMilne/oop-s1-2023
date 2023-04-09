@@ -1,5 +1,5 @@
-#ifndef BUS_H
-#define BUS_H
+#ifndef BUS_HPP
+#define BUS_HPP
 
 #include "Vehicle.hpp"
 
@@ -9,4 +9,4 @@ public:
     int getParkingDuration() const override;
 };
 
-#endif // BUS_H
+#endif // BUS_HPP

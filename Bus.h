@@ -1,11 +1,12 @@
 #ifndef BUS_H
 #define BUS_H
 
-#include "Vehicle."
+#include "Vehicle.h"
 
 class Bus : public Vehicle {
 public:
-    Bus(int ID);
+    Bus(int id);
+
     int getParkingDuration() const override;
 };
 

@@ -1,10 +1,8 @@
-#include "Bus.hpp"
+#include "Bus.h"
 
-Bus::Bus(int ID) : Vehicle(ID) {}
+Bus::Bus(int id) : Vehicle(id) {}
 
 int Bus::getParkingDuration() const {
-    std::time_t currentTime;
-    time(&currentTime);
-    int duration = currentTime - timeOfEntry;
-    return duration * 0.75;
+    int duration = Vehicle::getParkingDuration();
+    return static_cast<int>(duration * 0.75);
 }

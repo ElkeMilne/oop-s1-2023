@@ -1,32 +1,34 @@
 #include <iostream>
-#include <vector>
-#include "Car.hpp"
-#include "Bus.hpp"
-#include "Motorbike.hpp"
+#include "Vehicle.h"
+#include "Car.h"
+#include "Bus.h"
+#include "Motorbike.h"
 
 int main() {
-    std::vector<Vehicle*> vehicles;
     int numCars, numBuses, numMotorbikes;
-
     std::cout << "Enter the number of cars: ";
     std::cin >> numCars;
-    for (int i = 0; i < numCars; i++) {
-        int id;
-        std::cout << "Enter the ID of car " << i+1 << ": ";
-        std::cin >> id;
-        vehicles.push_back(new Car(id));
-    }
-
     std::cout << "Enter the number of buses: ";
     std::cin >> numBuses;
-    for (int i = 0; i < numBuses; i++) {
-        int id;
-        std::cout << "Enter the ID of bus " << i+1 << ": ";
-        std::cin >> id;
-        vehicles.push_back(new Bus(id));
-    }
-
     std::cout << "Enter the number of motorbikes: ";
     std::cin >> numMotorbikes;
-    for (int i = 0; i < numMotorbikes; i++)
+
+    const int numVehicles = numCars + numBuses + numMotorbikes;
+    Vehicle* vehicles[numVehicles];
+
+    int currentID = 1;
+
+    for (int i = 0; i < numCars; i++) {
+        vehicles[i] = new Car(currentID++);
+    }
+
+    for (int i = numCars; i < numCars + numBuses; i++) {
+        vehicles[i] = new Bus(currentID++);
+    }
+
+    for (int i = numCars + numBuses; i < numVehicles; i++) {
+        vehicles[i] = new Motorbike(currentID++);
+    }
+
+    std::cout << "
 }
