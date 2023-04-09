@@ -35,3 +35,29 @@ void ParkingLot::unparkVehicle(int vehicle_id) {
     }
     cout << "Vehicle not in the lot" << endl;
 }
+
+bool ParkingLot::parkVehicle(Vehicle* vehicle) {
+    if (count < maxCapacity) {
+        vehicles[count] = vehicle;
+        count++;
+        return true;
+    } else {
+        std::cout << "The lot is full" << std::endl;
+        return false;
+    }
+}
+
+int ParkingLot::getcount() const {
+    return count;
+}
+
+int ParkingLot::countOverstayingVehicles(int maxParkingDuration) const {
+    int overstayingVehicles = 0;
+    for (int i = 0; i < count; ++i) {
+        int parkingDuration = vehicles[i]->getParkingDuration();
+        if (parkingDuration > maxParkingDuration) {
+            overstayingVehicles++;
+        }
+    }
+    return overstayingVehicles;
+}
