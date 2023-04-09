@@ -12,9 +12,7 @@ public:
         vehicles = new Vehicle*[maxCapacity]; 
     }
 
-    ~ParkingLot() {
-        delete[] vehicles; 
-    }
+    ~ParkingLot();
 
     int getCount() const {
         return count;
