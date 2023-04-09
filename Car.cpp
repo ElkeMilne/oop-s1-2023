@@ -1,10 +1,8 @@
-#include "Car.hpp"
+#include "Car.h"
 
-Car::Car(int ID) : Vehicle(ID) {}
+Car::Car(int id) : Vehicle(id) {}
 
 int Car::getParkingDuration() const {
-    std::time_t currentTime;
-    time(&currentTime);
-    int duration = currentTime - timeOfEntry;
-    return duration * 0.9;
+    int duration = Vehicle::getParkingDuration();
+    return static_cast<int>(duration * 0.9);
 }
