@@ -11,6 +11,7 @@ ParkingLot::~ParkingLot() {
     for (int i = 0; i < count; i++) {
         delete vehicles[i];
     }
+    delete[] vehicles;
 }
 
 int ParkingLot::getCapacity() const {
@@ -31,10 +32,20 @@ void ParkingLot::parkVehicle(Vehicle* vehicle) {
 
 void ParkingLot::unparkVehicle(int vehicle_id) {
     for (int i = 0; i < count; i++) {
-        if (vehicles[i]->getID() == vehicle_id) {
+        if (vehicles[i]->getId() == vehicle_id) {
+            delete vehicles[i];
             vehicles[i] = vehicles[--count];
             return;
         }
     }
     cout << "Vehicle not in the lot" << endl;
+}
+int ParkingLot::countOverstayingVehicles(int maxParkingDuration) {
+    int count = 0;
+    for (Vehicle* vehicle : vehicles) {
+        if (vehicle->getDuration() > maxParkingDuration) {
+            count++;
+        }
+    }
+    return count;
 }

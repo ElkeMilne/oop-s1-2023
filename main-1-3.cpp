@@ -1,43 +1,29 @@
 #include <iostream>
-#include "parkinglot.h"
-
-using namespace std;
+#include "ParkingLot.h"
+#include "Car.h"
+#include "Bus.h"
+#include "Motorbike.h"
 
 int main() {
     ParkingLot parkingLot(10);
-    string vehicleType;
-    int numParked = 0;
 
-    while (numParked < parkingLot.capacity) {
-        cout << "Enter vehicle type (car/bus/motorbike): ";
-        cin >> vehicleType;
-
-        Vehicle* vehicle;
-        if (vehicleType == "car") {
-            vehicle = new Car();
-        }
-        else if (vehicleType == "bus") {
-            vehicle = new Bus();
-        }
-        else if (vehicleType == "motorbike") {
-            vehicle = new Motorbike();
-        }
-        else {
-            cout << "Invalid vehicle type. Try again." << endl;
-            continue;
-        }
-
-        if (parkingLot.parkVehicle(vehicle)) {
-            numParked++;
-            cout << "Vehicle parked." << endl;
-        }
-        else {
-            cout << "Parking lot full. Cannot park vehicle." << endl;
-        }
+    for (int i = 1; i <= 5; i++) {
+        Car* car = new Car(i, i*60);
+        parkingLot.parkVehicle(car);
     }
 
-    int overstayingCount = parkingLot.countOverstayingVehicles(15);
-    cout << "Number of overstaying vehicles: " << overstayingCount << endl;
+    for (int i = 6; i <= 8; i++) {
+        Bus* bus = new Bus(i, i*90);
+        parkingLot.parkVehicle(bus);
+    }
+
+    for (int i = 9; i <= 10; i++) {
+        Motorbike* motorbike = new Motorbike(i, i*30);
+        parkingLot.parkVehicle(motorbike);
+    }
+
+    int overstayingVehicles = parkingLot.countOverstayingVehicles(15);
+    std::cout << "Number of overstaying vehicles: " << overstayingVehicles << std::endl;
 
     return 0;
 }
