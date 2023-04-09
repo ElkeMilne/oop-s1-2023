@@ -12,5 +12,3 @@ int Vehicle::getParkingDuration() const {
     std::time_t currentTime = std::time(nullptr);
     return static_cast<int>(currentTime - timeOfEntry);
 }
-
-Vehicle::~Vehicle() {}
