@@ -1,13 +1,22 @@
 #ifndef CAR_H
 #define CAR_H
 
-#include "Vehicle.h"
-
-class Car : public Vehicle {
+class Car {
 public:
-    Car(int id);
+    Car();
+    Car(int price);
 
-    int getParkingDuration() const override;
+    int get_price() const;
+    int get_emissions() const;
+
+    void set_price(int price);
+
+    virtual void drive(int kms);
+
+private:
+    int price;
+    int emissions;
 };
 
-#endif // CAR_H
+#endif
+//
